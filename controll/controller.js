@@ -22,8 +22,18 @@ exports.getRestaurantById = async (req, res) => {
 // Get all restaurants (with pagination)
 exports.getAllRestaurants = async (req, res) => {
   try {
-    const restaurants = await Restaurant.find().limit(500) ; // Fetch all restaurants
-    res.json(restaurants);
+    const page = parseInt(req.query.page) || 1;  // Get page number from query, default to 1
+    const limit = 12;  // Set limit per page
+    const skip = (page - 1) * limit;
+
+    const totalRestaurants = await Restaurant.countDocuments();
+    const restaurants = await Restaurant.find().skip(skip).limit(limit);
+
+    res.json({
+      restaurants,
+      totalPages: Math.ceil(totalRestaurants / limit),
+      currentPage: page,
+    });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
