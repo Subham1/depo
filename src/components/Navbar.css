@@ -1,0 +1,47 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ff6347; /* Tomato Red */
+    padding: 10px 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: auto; /* Adjusted for responsiveness */
+    flex-wrap: wrap;
+  }
+  
+  .menu-icon {
+    font-size: 32px; /* Initial icon size */
+    color: rgb(46, 45, 45);
+    margin-right: 10px; /* Space between the icon and title */
+  }
+  
+  .navbar-title {
+    color: rgb(40, 40, 40);
+    font-size: 26px; /* Adjust font size for better visibility */
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .menu-icon {
+      font-size: 28px; /* Smaller icon size on smaller screens */
+    }
+  
+    .navbar-title {
+      font-size: 22px; /* Smaller font size on smaller screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .menu-icon {
+      font-size: 24px; /* Even smaller icon size on very small screens */
+    }
+  
+    .navbar-title {
+      font-size: 20px; /* Even smaller title on very small screens */
+    }
+  }
+  
